@@ -13,9 +13,8 @@ For more information see the thread on the [Plover Aviary](http://stenoknight.co
 # Installation
 
 1.  Download the .zip (button on the right of this text)
-2.  Unzip "Steno lookup.zip"
-3.  Double click "Steno lookup" - if asked if you want to install it, do so.
-4. If you have dictionaries outside of the default Plover dictionary path, you might want to create soft links to those into ~/Library/Applicaton\ Support/plover/. Finder aliases unfortunatley don't work - you'll have to use the Terminal and type:
+2.  Double click "Steno lookup" - if asked if you want to install it, do so.
+3. If you have dictionaries outside of the default Plover dictionary path, you might want to create soft links to those into ~/Library/Applicaton\ Support/plover/. Finder aliases unfortunatley don't work - you'll have to use the Terminal and type:
 >   ln -s path/to/my/dictionary.json ~/Library/Applicaton\ Support/plover/
 
 # Usage
