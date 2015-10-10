@@ -12,7 +12,7 @@ For more information see the thread on the [Plover Aviary](http://stenoknight.co
 
 # Installation
 
-1.  [Download the files included](https://github.com/dimonster/plover-lookup-enhanced/archive/master.zip).
+1.  Download the .zip (button on the right of this text)
 2.  Unzip "Steno lookup.zip"
 3.  Double click "Steno lookup" - if asked if you want to install it, do so.
 4. If you have dictionaries outside of the default Plover dictionary path, you might want to create soft links to those into ~/Library/Applicaton\ Support/plover/. Finder aliases unfortunatley don't work - you'll have to use the Terminal and type:
@@ -37,4 +37,6 @@ The bash script "dictlook" has some options available:
 -e The word must be the last in the stroke translation
 
 If you want to search for a phrase you'll have to use quotes, e.g.
-> dictlook "he was"
+
+\> dictlook "he was"
+
