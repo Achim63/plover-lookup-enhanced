@@ -1,0 +1,32 @@
+#!/bin/bash
+# Copyright (c) 2015 Achim Siebert
+# License: GPL v3.0
+
+# This script looks up words in any Plover .json dictionary file residing in
+# ~/Library/Application\ Support/plover/,
+# sorts it by number of keystrokes and removes parenthesis
+
+str=$1
+while getopts "sex" opt
+do
+    case $opt in
+        s) str='"'
+           anf=$2
+           str+=$anf
+        ;;
+        e) str=$2
+           str+='"'
+        ;;
+        x) str='"'
+           anf=$2
+           str+=$anf
+           str+='"'
+					 echo $anf":"
+					 echo
+					 grep -iah "$str" ~/Library/Application\ Support/plover/*.json | sed 's/": ".*",$//' | sed 's/^"//' | (while read LINE; do echo -e "${#LINE}\t$LINE"; done) | sort -n | cut -f 2-
+					 exit 0
+        ;;
+    esac
+done
+grep -iah "\".*\".*$str" ~/Library/Application\ Support/plover/*.json | sed 's/": "/	/' | sed 's/",$//' | sed 's/^"//' | (while read LINE; do echo -e "${#LINE}\t$LINE"; done) | sort -n | cut -f 2-
+exit 0
