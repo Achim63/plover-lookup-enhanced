@@ -24,7 +24,7 @@ To use the service, select a word in any app that let's you do so, and open Sten
 
 Tip: I use a dictionary entry like this:
 
-"TK\*L": "{^}{#Alt\_L(Shift\_L(Left))}{#Super\_L(Alt_L(F1))}{#Right}{ }",
+"TK\*L": "{^}{#Alt\_L(Shift\_L(Left))}{#Super\_L(Alt_L(F1))}{#Right}",
 
 My keyboard shortcut for Steno lookup is Cmd+Alt+F1, and this entry selects the last typed word and looks it up (so if you had to fingerspell a word, you just stroke TK\*L to find the correct stroke).
 
