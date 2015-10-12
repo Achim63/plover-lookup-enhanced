@@ -40,3 +40,6 @@ If you want to search for a phrase you'll have to use quotes, e.g.
 
 \> dictlook "he was"
 
+It's also possible to use grep inside, this will find all suffixes:
+
+\> dictlook "\"{\^}.*"
