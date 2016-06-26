@@ -1,5 +1,5 @@
 # New – lookup.py
-A script that looks up words, parts of words and also strokes in all dictionaries defined in Plover. Sorts results by stroke length or optionally alphabetically. Verbose (-v) output shows additional information (type of entry, entries overwritten by a dictionary with higher precedence, dictionary the word is found in). Arguments are concatenated, so you can simply type "lookup.py this is" and get results for "this is", not for "this" and "is" separately. Use lookup.py -h for help about all options.
+An OSX script that looks up words, parts of words and also strokes in all dictionaries defined in Plover. Sorts results by stroke length or optionally alphabetically. Verbose (-v) output shows additional information (type of entry, entries overwritten by a dictionary with higher precedence, dictionary the word is found in). Arguments are concatenated, so you can simply type "lookup.py this is" and get results for "this is", not for "this" and "is" separately. Use lookup.py -h for help about all options.
 
 # README
 
