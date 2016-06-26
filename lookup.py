@@ -5,6 +5,8 @@
 
 import os
 import sys
+import codecs
+import locale
 import argparse
 import simplejson as json
 
@@ -95,6 +97,8 @@ class LookUp():
                 self.markDoubled(strokedef, self.dictNames[i])
                 if strokedef.lower() == self.stringToFind.lower():
                     self.defresult.append([strokedef, entry, self.dictNames[i], "entry", []])
+                elif self.findall and (self.stringToFind.lower() in strokedef.lower()):
+                    self.defresult.append([strokedef, entry, self.dictNames[i], "entry", []])
             i = i + 1
 
     def findAll(self):
@@ -121,10 +125,10 @@ class LookUp():
             i = i + 1
 
     def sortByLength(self):
-        self.defresult = self.sort(self.defresult)
+        self.defresult = self.sortByStrokeLength(self.defresult)
         self.defresult = self.sortByNumberOfStrokes(self.defresult)
 
-    def sort(self, resultlist):
+    def sortByStrokeLength(self, resultlist):
         less = []
         equal = []
         greater = []
@@ -138,7 +142,7 @@ class LookUp():
                     equal.append(x)
                 if len(x[0]) > pivot:
                     greater.append(x)
-            return self.sort(less)+equal+self.sort(greater)
+            return self.sortByStrokeLength(less)+equal+self.sortByStrokeLength(greater)
         else:
             return resultlist
 
@@ -161,7 +165,7 @@ class LookUp():
             return resultlist
 
     def sortAlpha(self):
-        self.defresult = self.sortByEntry(self.defresult)
+        self.defresult = sorted(self.defresult, key=lambda mydef: mydef[1].lower())
 
     def sortByEntry(self, resultlist):
         less = []
@@ -182,6 +186,7 @@ class LookUp():
             return resultlist
 
     def prettyprint(self):
+        sys.stdout = codecs.getwriter(locale.getpreferredencoding())(sys.stdout)
         for item in self.defresult:
             if item[4] == []:
                 if self.verbose:
@@ -194,6 +199,8 @@ class LookUp():
             else:
                 if self.verbose:
                     print(u'({i[0]} overwritten in {i[4][0]})'.format(i=item))
+        if self.verbose:
+            print(u'--- {} result(s) in {} dictionaries ---'.format(len(self.defresult), len(self.dictList)))
 
 def main():
 
