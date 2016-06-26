@@ -82,10 +82,10 @@ class LookUp():
                 elif (self.stringToFind + "{^}{-|}" == entry) or (self.stringToFind + "{-|}" == entry):
                     newresult.append([strokedef, entry, self.dictNames[i], "capitalize next", []])
                 elif "{^}" + self.stringToFind == entry:
-                    newresult.append([strokedef, entry, self.dictNames[i], "exact match", "suffix", []])
+                    newresult.append([strokedef, entry, self.dictNames[i], "suffix", []])
                 elif ("{^}" + self.stringToFind + "{^}" == entry) or \
                      ("{^" + self.stringToFind + "^}" == entry):
-                    newresult.append([strokedef, entry, self.dictNames[i], "exact match", "infix", []])
+                    newresult.append([strokedef, entry, self.dictNames[i], "infix", []])
             self.defresult = self.defresult + newresult
             i = i + 1
 
