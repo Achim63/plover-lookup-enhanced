@@ -167,24 +167,6 @@ class LookUp():
     def sortAlpha(self):
         self.defresult = sorted(self.defresult, key=lambda mydef: mydef[1].lower())
 
-    def sortByEntry(self, resultlist):
-        less = []
-        equal = []
-        greater = []
-
-        if len(resultlist) > 1:
-            pivot = resultlist[0][1]
-            for x in resultlist:
-                if x[1] < pivot:
-                    less.append(x)
-                if x[1] == pivot:
-                    equal.append(x)
-                if x[1] > pivot:
-                    greater.append(x)
-            return self.sortByEntry(less)+equal+self.sortByEntry(greater)
-        else:
-            return resultlist
-
     def prettyprint(self):
         sys.stdout = codecs.getwriter(locale.getpreferredencoding())(sys.stdout)
         for item in self.defresult:
