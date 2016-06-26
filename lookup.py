@@ -21,6 +21,7 @@ class LookUp():
     defresult = []
     verbose = False
     findall = False
+    reverse = False
 
     def change_quotes(self):
         self.stringToFind = self.stringToFind.replace("’", "'")
@@ -59,7 +60,7 @@ class LookUp():
     def markDoubled(self, strokedef, dname):
         for x, result in enumerate(self.defresult[:]):
             if result[0] == strokedef:
-                self.defresult[x][4] = [dname]
+                self.defresult[x][4] = [dname, result[1]]
 
     def find(self):
         if self.findall:
@@ -177,13 +178,13 @@ class LookUp():
                 if self.verbose:
                     print(u'{i[0]} – {i[1]} ({i[3]}) – {i[2]}'.format(i=item))
                 else:
-                    if (item[3] == "exact match") and not self.findall:
+                    if (item[3] == "exact match") and not self.findall and not self.reverse:
                         print(u'{i[0]}'.format(i=item))
                     else:
                         print(u'{i[0]} – {i[1]}'.format(i=item))
             else:
                 if self.verbose:
-                    print(u'({i[0]} overwritten in {i[4][0]})'.format(i=item))
+                    print(u'({i[0]} – {i[4][1]} – in {i[2]} overwritten in {i[4][0]})'.format(i=item))
         if self.verbose:
             print(u'--- {} result(s) in {} dictionaries ---'.format(len(self.defresult), len(self.dictList)))
 
@@ -210,6 +211,7 @@ def main():
 
     lkUp = LookUp(words)
     lkUp.findall = theargs.all
+    lkUp.reverse = theargs.reverse
     if theargs.reverse:
         lkUp.findreverse()
     else:
