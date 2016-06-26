@@ -99,7 +99,7 @@ class LookUp():
                 entry = dict[strokedef]
                 self.markDoubled(strokedef, self.dictNames[i])
                 if strokedef.lower() == self.stringToFind.lower():
-                    self.defresult.append([strokedef, entry, self.dictNames[i], "entry", []])
+                    self.defresult.append([strokedef, entry, self.dictNames[i], "exact match", []])
                 elif self.findall and (self.stringToFind.lower() in strokedef.lower()):
                     self.defresult.append([strokedef, entry, self.dictNames[i], "entry", []])
             i = i + 1
