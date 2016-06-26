@@ -33,9 +33,10 @@ class LookUp():
         self.stringToFind = stringToFind
         self.change_quotes()
         configDir = appdirs.user_data_dir('plover', 'plover')
+        configFile = os.path.join(configDir, "plover.cfg")
         if self.dictNames == []:
             try:
-                infile = open(configDir + '/plover.cfg', 'r')
+                infile = open(configFile, 'r')
             except:
                 print("No plover.cfg found")
                 exit(1)
