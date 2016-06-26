@@ -8,6 +8,7 @@ import sys
 import codecs
 import locale
 import argparse
+import appdirs
 import simplejson as json
 
 
@@ -31,10 +32,10 @@ class LookUp():
     def __init__(self, stringToFind):
         self.stringToFind = stringToFind
         self.change_quotes()
-        home = os.path.expanduser("~")
+        configDir = appdirs.user_data_dir('plover', 'plover')
         if self.dictNames == []:
             try:
-                infile = open(home + '/Library/Application Support/plover/plover.cfg', 'r')
+                infile = open(configDir + '/plover.cfg', 'r')
             except:
                 print("No plover.cfg found")
                 exit(1)
