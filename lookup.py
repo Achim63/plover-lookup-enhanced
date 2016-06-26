@@ -6,7 +6,6 @@
 import os
 import sys
 import argparse
-from operator import itemgetter
 import simplejson as json
 
 class LookUp():
