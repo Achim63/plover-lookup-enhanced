@@ -10,6 +10,7 @@ import locale
 import argparse
 import simplejson as json
 
+
 class LookUp():
 
     home = ""
@@ -21,11 +22,11 @@ class LookUp():
     findall = False
 
     def change_quotes(self):
-        self.stringToFind = self.stringToFind.replace("’","'")
-        self.stringToFind = self.stringToFind.replace("‘","'")
-        self.stringToFind = self.stringToFind.replace('”','"')
-        self.stringToFind = self.stringToFind.replace('“','"')
-        self.stringToFind = self.stringToFind.replace('„','"')
+        self.stringToFind = self.stringToFind.replace("’", "'")
+        self.stringToFind = self.stringToFind.replace("‘", "'")
+        self.stringToFind = self.stringToFind.replace('”', '"')
+        self.stringToFind = self.stringToFind.replace('“', '"')
+        self.stringToFind = self.stringToFind.replace('„', '"')
 
     def __init__(self, stringToFind):
         self.stringToFind = stringToFind
@@ -68,7 +69,7 @@ class LookUp():
         self.defresult = []
         i = 0
         for dict in self.dictList:
-            newresult=[]
+            newresult = []
             for strokedef in dict:
                 entry = dict[strokedef]
                 self.markDoubled(strokedef, self.dictNames[i])
@@ -81,10 +82,10 @@ class LookUp():
                 elif (self.stringToFind + "{^}{-|}" == entry) or (self.stringToFind + "{-|}" == entry):
                     newresult.append([strokedef, entry, self.dictNames[i], "capitalize next", []])
                 elif "{^}" + self.stringToFind == entry:
-                    newresult.append([strokedef, entry, self.dictNames[i], exactMatch, "suffix", []])
+                    newresult.append([strokedef, entry, self.dictNames[i], "exact match", "suffix", []])
                 elif ("{^}" + self.stringToFind + "{^}" == entry) or \
-                    ("{^" + self.stringToFind + "^}" == entry):
-                    newresult.append([strokedef, entry, self.dictNames[i], exactMatch, "infix", []])
+                     ("{^" + self.stringToFind + "^}" == entry):
+                    newresult.append([strokedef, entry, self.dictNames[i], "exact match", "infix", []])
             self.defresult = self.defresult + newresult
             i = i + 1
 
@@ -105,7 +106,7 @@ class LookUp():
         self.defresult = []
         i = 0
         for dict in self.dictList:
-            newresult=[]
+            newresult = []
             for strokedef in dict:
                 entry = dict[strokedef]
                 self.markDoubled(strokedef, self.dictNames[i])
@@ -184,19 +185,20 @@ class LookUp():
         if self.verbose:
             print(u'--- {} result(s) in {} dictionaries ---'.format(len(self.defresult), len(self.dictList)))
 
+
 def main():
 
     parser = argparse.ArgumentParser(description='Lookup words or strokes in Plover dictionaries')
-    parser.add_argument('-a', '--all', default = False, action='store_true',
-                       help='list all occurences')
-    parser.add_argument('-n', '--nosort', default = False, action='store_true',
-                       help='do not sort result by length and number of strokes')
-    parser.add_argument('-s', '--sortalpha', default = False, action='store_true',
-                       help='sort translations alphabetically')
-    parser.add_argument('-r', '--reverse', default = False, action='store_true',
-                       help='lookup translation of stroke')
-    parser.add_argument('-v', '--verbose', default = False, action='store_true',
-                       help='print additional information')
+    parser.add_argument('-a', '--all', default=False, action='store_true',
+                        help='list all occurences')
+    parser.add_argument('-n', '--nosort', default=False, action='store_true',
+                        help='do not sort result by length and number of strokes')
+    parser.add_argument('-s', '--sortalpha', default=False, action='store_true',
+                        help='sort translations alphabetically')
+    parser.add_argument('-r', '--reverse', default=False, action='store_true',
+                        help='lookup translation of stroke')
+    parser.add_argument('-v', '--verbose', default=False, action='store_true',
+                        help='print additional information')
     parser.add_argument('words', nargs='+', help='word(s) to look up')
 
     theargs = parser.parse_args()
