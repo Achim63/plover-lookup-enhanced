@@ -254,7 +254,7 @@ class LookUp():
                         print('{i[0]} {j} – {i[1]}'.format(i=item, j=pseudo))
             else:
                 if self.verbose:
-                    print('({i[0]} – {i[4][1]} – in {i[2]} overwritten in {i[4][0]})'.format(i=item))
+                    print('{i[0]} – {i[4][1]} – {i[2]}, overwrites entry in {i[4][0]}'.format(i=item))
         if self.verbose:
             print('--- {} result(s) in {} dictionaries ---'.format(len(self.defresult), len(self.dictList)))
 
