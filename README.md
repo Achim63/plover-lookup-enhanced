@@ -1,3 +1,6 @@
+# New – lookup5.py
+For Plover 4.x. Adds translation of strokes to pseudo-steno (e.g. PWEUPB -> BIN; #3WU8 -> #BUL) to enhance legibility.
+
 # New – lookup.py
 An OSX script that looks up words, parts of words and also strokes in all dictionaries defined in Plover. Sorts results by stroke length or optionally alphabetically. Verbose (-v) output shows additional information (type of entry, entries overwritten by a dictionary with higher precedence, dictionary the word is found in). Arguments are concatenated, so you can simply type "lookup.py this is" and get results for "this is", not for "this" and "is" separately. Use lookup.py -h for help about all options.
 
