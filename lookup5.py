@@ -199,7 +199,6 @@ class LookUp():
             lhand = lhand.replace("HR","L")
             lhand = lhand.replace("SR","V")
             lhand = lhand.replace("KP","X")
-            lhand = lhand.replace("KR","C")
             lhand = lhand.replace("TP","F")
             vowels = vowels.replace("AOEU","YI")
             vowels = vowels.replace("AO*EU","YI*")
