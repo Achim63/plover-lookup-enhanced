@@ -205,6 +205,7 @@ class LookUp():
             vowels = vowels.replace("AO*EU","YI*")
             vowels = vowels.replace("*EU","I*")
             vowels = vowels.replace("*U","U*")
+            vowels = vowels.replace("*E","E*")
             vowels = vowels.replace("EU","I")
             vowels = vowels.replace("5","A")
             vowels = vowels.replace("0","O")
