@@ -4,8 +4,8 @@
 # License: GPL v3.0
 
 import os
-import sys
 import argparse
+# TODO: appdirs deprecated, use platformdirs instead!
 import appdirs
 import simplejson as json
 import re
@@ -38,7 +38,7 @@ class LookUp():
         if self.dictNames == []:
             try:
                 infile = open(configFile, 'r')
-            except:
+            except FileNotFoundError:
                 print("No plover.cfg found")
                 exit(1)
 
@@ -48,7 +48,7 @@ class LookUp():
                     mydicts = line[start_of_path:-1]
                     the_dicts = json.loads(mydicts)
                     for i in the_dicts:
-                        if i['enabled'] == True:
+                        if i['enabled']:
                             self.dictFileList.append(os.path.expanduser(i['path']))
             infile.close()
 
